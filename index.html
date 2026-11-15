@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Malika | IT Student Portfolio</title>
+  <meta name="description" content="Portfolio of Malika, a first-year IT student at Inha University in Tashkent.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loading screen (hidden by script.js when page is ready) -->
+  <div id="loader"><div class="ring"></div><p>Booting portfolio...</p></div>
+
+  <!-- Animated particles are drawn on this canvas -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- NAVIGATION -->
+  <header class="nav glass">
+    <a href="#home" class="logo">malika<span>.dev</span></a>
+    <nav id="menu">
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#detective">Detective</a>
+      <a href="#assistant">AI Chat</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="themeBtn" class="icon-btn" aria-label="Switch dark/light mode">🌙</button>
+    <button id="burger" class="icon-btn" aria-label="Open menu">☰</button>
+  </header>
+
+  <main>
+    <!-- 1. HERO -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Hi, I'm <span class="grad">Malika</span></h1>
+        <p class="subtitle">IT Student | Future Technology Explorer</p>
+        <p class="typing">I want to become an <span id="typed"></span><span class="cursor">|</span></p>
+        <div class="btns">
+          <a href="#projects" class="btn primary">View projects</a>
+          <a href="#contact" class="btn ghost">Contact me</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar">M</div>
+        <span class="chip c1">Python</span>
+        <span class="chip c2">AI</span>
+        <span class="chip c3">C++</span>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT -->
+    <section id="about" class="reveal">
+      <h2>About Me</h2>
+      <div class="glass card about">
+        <p>Malika is a first-year IT student at Inha University in Tashkent, passionate about programming, artificial intelligence, and creating meaningful technology solutions. She enjoys learning how the internet works, building small projects, and turning curiosity into working code.</p>
+      </div>
+    </section>
+
+    <!-- 3. COURSES -->
+    <section id="courses" class="reveal">
+      <h2>My Courses</h2>
+      <div class="grid">
+        <article class="glass card tilt course" tabindex="0"><div class="icon">💻</div><h3>Programming</h3><p>Writing clean code and solving problems step by step.</p><div class="more">Currently learning: variables, loops, functions, and algorithms.</div></article>
+        <article class="glass card tilt course" tabindex="0"><div class="icon">🌐</div><h3>Computer Networks</h3><p>How data travels across the internet.</p><div class="more">Topics: IP addresses, DNS, HTTP/HTTPS, and protocols.</div></article>
+        <article class="glass card tilt course" tabindex="0"><div class="icon">📐</div><h3>Mathematics for IT</h3><p>The logic behind computing.</p><div class="more">Topics: discrete math, logic, sets, and number systems.</div></article>
+        <article class="glass card tilt course" tabindex="0"><div class="icon">🤖</div><h3>Artificial Intelligence</h3><p>Intro to machines that learn.</p><div class="more">Exploring: machine learning basics and smart assistants.</div></article>
+      </div>
+      <p class="hint">Click or tap a card to see more.</p>
+    </section>
+
+    <!-- 4. SKILLS (data-level = percent filled) -->
+    <section id="skills" class="reveal">
+      <h2>Skills</h2>
+      <div class="glass card skills">
+        <div class="skill"><div class="row"><span>Python</span><b>70%</b></div><div class="bar"><i data-level="70"></i></div></div>
+        <div class="skill"><div class="row"><span>C++</span><b>55%</b></div><div class="bar"><i data-level="55"></i></div></div>
+        <div class="skill"><div class="row"><span>JavaScript</span><b>60%</b></div><div class="bar"><i data-level="60"></i></div></div>
+        <div class="skill"><div class="row"><span>Data Analysis</span><b>50%</b></div><div class="bar"><i data-level="50"></i></div></div>
+        <div class="skill"><div class="row"><span>Networking</span><b>65%</b></div><div class="bar"><i data-level="65"></i></div></div>
+      </div>
+    </section>
+
+    <!-- 5. PROJECTS -->
+    <section id="projects" class="reveal">
+      <h2>Projects</h2>
+      <div class="grid three">
+        <article class="glass card tilt project"><h3>AI Assistant</h3><p>A simple chatbot that answers questions using rule-based logic written in JavaScript.</p><div class="tags"><span>JavaScript</span><span>AI</span><span>UI</span></div></article>
+        <article class="glass card tilt project"><h3>Network Detective</h3><p>An investigation into how websites are found, connected, and secured on the internet.</p><div class="tags"><span>DNS</span><span>HTTPS</span><span>Networking</span></div></article>
+        <article class="glass card tilt project"><h3>Personal Technology Projects</h3><p>Small experiments and practice apps built while learning to code.</p><div class="tags"><span>Python</span><span>C++</span><span>HTML/CSS</span></div></article>
+      </div>
+    </section>
+
+    <!-- 6. NETWORK DETECTIVE TERMINAL -->
+    <section id="detective" class="reveal">
+      <h2>Network Detective</h2>
+      <div class="terminal">
+        <div class="term-top"><i></i><i></i><i></i><span>detective@malika:~</span></div>
+        <pre id="term" aria-live="polite"></pre>
+      </div>
+    </section>
+
+    <!-- 7. MINI AI ASSISTANT -->
+    <section id="assistant" class="reveal">
+      <h2>Mini AI Assistant</h2>
+      <div class="glass card chat">
+        <div id="chatLog" class="log"><div class="msg bot">Hi! Ask me about Malika. Try the buttons below.</div></div>
+        <div class="quick">
+          <button>Who is Malika?</button>
+          <button>What does she study?</button>
+          <button>What are her interests?</button>
+        </div>
+        <form id="chatForm">
+          <input id="chatInput" type="text" placeholder="Type a question..." autocomplete="off" aria-label="Your question">
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT -->
+    <section id="contact" class="reveal">
+      <h2>Contact</h2>
+      <div class="glass card contact">
+        <p>Want to collaborate or just say hello?</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:malika@example.com">Email me</a>
+          <a class="btn ghost" href="#" onclick="return false">LinkedIn (add link)</a>
+          <a class="btn ghost" href="#" onclick="return false">GitHub (add link)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Malika · Inha University in Tashkent</footer>
+  <script src="script.js"></script>
+</body>
+</html>
